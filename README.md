@@ -44,13 +44,19 @@ Teacher-Student-Secure-Portal/
 │   ├── public/
 │   ├── package.json
 │   └── README.md
-├── backend/
+├── server/
 │   ├── (Express.js/Node.js server and API logic)
 │   └── ...
 └── README.md
 ```
 
 ---
+
+## Implementation notes
+
+The Express backend is in `server/`. The frontend start script uses Windows `set` syntax and port 4000; on macOS/Linux use `PORT=4000 NODE_OPTIONS=--openssl-legacy-provider npx react-scripts start` from `frontend/`. Configure your own MongoDB connection and authentication/encryption settings in the server before use. The current server contains inline configuration; creating an `.env` file alone does not configure it.
+
+The project includes authentication, file handling, and vault workflows. Protection/status flags should not be interpreted as proof of a complete watermarking or document-rights-management system.
 
 ## ⚙️ Getting Started
 
@@ -62,7 +68,7 @@ Teacher-Student-Secure-Portal/
 ### 1. Clone the repository
 
 ```sh
-git clone https://github.com/luci-fier/Teacher-Student-Secure-Portal.git
+git clone https://github.com/Sandesh-Varma/Teacher-Student-Secure-Portal.git
 cd Teacher-Student-Secure-Portal
 ```
 
@@ -76,13 +82,13 @@ npm install
 
 #### For the Backend
 ```sh
-cd ../backend
+cd ../server
 npm install
 ```
 
 ### 3. Environment Variables
 
-- Set up your `.env` files as required for backend (API keys, database URLs, JWT secrets, etc.).
+- Review the inline configuration in `server/server.js` and supply your own database and authentication/encryption settings. Do not use example or development credentials for a deployment.
 
 ### 4. Run the Application
 
@@ -101,7 +107,7 @@ In a new terminal:
 cd frontend
 npm start
 ```
-Frontend will run on [http://localhost:3001](http://localhost:3001) (or as configured).
+The supplied Windows start script runs the frontend on [http://localhost:4000](http://localhost:3001) (or as configured).
 
 ---
 
@@ -123,3 +129,7 @@ Frontend will run on [http://localhost:3001](http://localhost:3001) (or as confi
 
 
 ---
+
+## Documentation provenance
+
+The earlier setup instructions pointed to `luci-fier/Teacher-Student-Secure-Portal`. That historical reference is retained here; the clone command now points to this repository. Collaborator credits above are preserved.
