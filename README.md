@@ -107,7 +107,7 @@ In a new terminal:
 cd frontend
 npm start
 ```
-The supplied Windows start script runs the frontend on [http://localhost:4000](http://localhost:3001) (or as configured).
+The supplied Windows start script runs the frontend on [http://localhost:4000](http://localhost:4000) (or as configured).
 
 ---
 
